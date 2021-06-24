@@ -6,8 +6,14 @@ import (
 
 func main() {
 
-	ProductScraper := scraper.NewProductScraper("https://market.yandex.ru/product--sudokrem-zashchitnyi-i-uspokaivaiushchii-pod-podguznik-ot-oprelostei-i-pokrasnenii-dlia-novorozhdennykh/1728462711?nid=18044745&show-uid=16244249620444773635616002&context=search&onstock=1&sku=100235109248&cpc=_vNhijy6MiigojBVltLnIsWtN6BsXi0x4y2GxLyA-LoVMQCdlI4TdZZZmUXWxfhKVF2r8ZZgFjwqsw_U4ud4mlman6BJFIN4kh62h8hyD4IiRWAwCdMwMJ0RqTnbBIFrIbBadrZ_Fb5Fy1GIerWDNUHRiKG_UhxI0FDJCsKPx-Fu07mVpwtDpQ%2C%2C&do-waremd5=6ZRsCsU5i2tZoRvMf6Gp_A")
+	url := "https://market.yandex.ru/product--weleda-maslo-dlia-massazha-zhivotika-mladentsev/1722845054?cpa=1&cpc=jicXAlT-HIQ9e34t44x25QFcUTndCaki88Tm10jzI54uc2j9xhEgiKuSBt5SccV9nuUpLAknGx_wrL1Dtq18pJT4iqmyALWzzKyKF8QO0G1EhGsgVMpFN-F3yBNGzLdijxsUDwYP0V-CeR2zkoG7OIWrtiUQlFZfWlBVZ0t0edK2uN8GsW08DQ%2C%2C&sku=100237420679&do-waremd5=0qOLKtWpzaxppJIIortPFQ"
 
-	scraper.NewClient(ProductScraper)
+	// парсим данные товара url
+	//Scraper := scraper.NewProductScraper(url)
+
+	// парсим остатки на складе для товара заданного url
+	Scraper := scraper.NewBasketScraper(url)
+
+	scraper.NewClient(Scraper)
 
 }

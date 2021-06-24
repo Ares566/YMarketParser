@@ -10,7 +10,6 @@ import (
 )
 
 type Client struct {
-	
 }
 
 func NewClient(scraper IScraper) {
@@ -33,7 +32,7 @@ func NewClient(scraper IScraper) {
 	defer cancel()
 
 	// create a timeout
-	ctx, cancel = context.WithTimeout(ctx, 40*time.Second)
+	ctx, cancel = context.WithTimeout(ctx, 60*time.Second)
 	defer cancel()
 
 	scraper.process(ctx)
