@@ -6,14 +6,18 @@ import (
 
 func main() {
 
-	url := "https://market.yandex.ru/product--weleda-detskii-krem-dlia-litsa-s-kalenduloi/1722845053?nid=18044746&show-uid=16245982200210986714116006&context=search&glfilter=7893318%3A8513199&onstock=1&sku=100237415624&cpc=XqNhJZ6_HpdF_tnO2f2KNeHgF0KlmQ3bQEBFiSoBBCJlIlp7ijuQAL4Z2BgPQ1o3DqCqJAcgA7HAhTKa78dj5Y0tGhQp992D41suc9v0x-UFyZeqm7o86hA7flKN8D4XgQuHmdvrMcMn3L31B-s8dqlX9-ybLR5AOBulRKMtG0oR8woUoUeUdA%2C%2C&do-waremd5=Ez6gyjjEMoevdQa1OaVc_g"
+	productURL := []string{
+		"https://market.yandex.ru/product--weleda-maslo-dlia-mladentsev-s-kalenduloi-s-nezhnym-aromatom/1722845046?nid=18044746&show-uid=16250239923955073468616003&context=search&glfilter=7893318%3A8513199&onstock=1&sku=100242020836&cpc=Yx9sPGU0iDU7srEKm7Q9niTzkEBn8l2H9XQzDp0-XZvZyuN9sGwr93EAFakavWsPknbiMgPlV5kP66oHh696GhaBqpirMeknp60A1tmpaMD2otpS9hRRDV0QpG4VRshFWzClueCC9AHXZngPwpRt5eSd93ajwACHficVcA4IfoWw05tQlbBb9A%2C%2C&do-waremd5=MM5ZEPEDe0pFL2iJNNnGTQ",
+		"https://market.yandex.ru/product--weleda-detskoe-molochko-dlia-giperchuvstvitelnoi-kozhi-tela-s-alteem/1722845051?nid=18044746&show-uid=16250239923955073468616004&context=search&glfilter=7893318%3A8513199&onstock=1&sku=100318425259&cpc=Yx9sPGU0iDVfmcrLvxRn7_kea6YJUHAmdoN9Glw9gAgrzs_52ajQLBGQJ2i7Lnx156JE2Ts7tbzXBHaUZRJFnfNc3QVo74Q6AiEQpRJLrtiadENmDXNsQpunyQ5EPmFvG-FBx0nKWUJplZFw-BW_UAFFZm4BB-5i0iusYByRFk8_q2is3eI9Fw%2C%2C&do-waremd5=Wesl8risSlBVIQeOcQUHug",
+		"https://market.yandex.ru/product--weleda-detskii-balzam-zashchitnyi-ot-vetra-i-kholoda-s-kalenduloi/1722845037?nid=18044746&show-uid=16250239923955073468616009&context=search&glfilter=7893318%3A8513199&onstock=1&sku=100234383551&cpc=uaV08jcA5Qbk4txyDVQcJRFQ2dTNLzWLld_I4n69z0Jq1QC1o_RK5dTmUgD_vk31FrpQWHoNg1dS_CWVxVI5PTCs9nmRROKkDZLmF-IAtQK4tPeZaj9BGnGmdtfgBJi-RPzw8SWsez6e1A5w2d0C2Z6JAzLazubNc3KP4j5yQzJyV7Rpdlsicg%2C%2C&do-waremd5=n2JLc8YVR23LxNrTklrFIQ",
+	}
 
 	// парсим данные товара url
-	//Scraper := scraper.NewProductScraper(url)
+	ProductScrapper := scraper.NewProductScraper(productURL)
 
 	// парсим остатки на складе для товара заданного url
-	Scraper := scraper.NewBasketScraper(url)
+	//Scraper := scraper.NewBasketScraper(url)
 
-	scraper.NewClient(Scraper)
+	scraper.NewClient(ProductScrapper)
 
 }

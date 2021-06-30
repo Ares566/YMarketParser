@@ -32,9 +32,17 @@ func NewClient(scraper IScraper) {
 	defer cancel()
 
 	// create a timeout
-	ctx, cancel = context.WithTimeout(ctx, 60*time.Second)
-	defer cancel()
+	// ctx, cancel = context.WithTimeout(ctx, 60*time.Second)
+	// defer cancel()
 
 	scraper.process(ctx)
 
+}
+
+func RunWithTimeOut(ctx *context.Context, timeout time.Duration, tasks chromedp.Tasks) chromedp.ActionFunc {
+	return func(ctx context.Context) error {
+		timeoutContext, cancel := context.WithTimeout(ctx, timeout*time.Second)
+		defer cancel()
+		return tasks.Do(timeoutContext)
+	}
 }
